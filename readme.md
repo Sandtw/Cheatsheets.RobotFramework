@@ -143,6 +143,23 @@ IF    'Copia Maestra' not in ${LIST_DOCUMENTS}
 
 # Bucles
 
+- Bucle con **IN** (la lista debe ser definida con @, para su iteración)
+```python
+FOR    ${element}    IN    @{RUT_CLIENTE}
+    ...
+END
+```
+
+- Usando **RANGE**, no toma el ultimo nro (Ejm: Empiezas de 1 hasta ${ROWS} - 1), y si el valor del elemento es 5, entonces se pasa a la siguiente iteración (CONTINUE)
+```python
+FOR     ${ROW}   IN RANGE   1  ${ROWS}
+    IF    ${ROW} == 5
+        ...
+        CONTINUE
+    END
+END
+END
+```
 
 # Tipos de datos
 
@@ -234,6 +251,12 @@ Select From List By Label    //select[@name="familiaFech"]      Bancos y Financi
 
 # Elementos HTML
 
+- Tenemos un elemento input del tipo file, solo necesitamos especificar el id de ese elemento, y la ruta del archivo del cual subiremos al input
+```python
+*** Test Cases ***
+Ejecutando
+    Choose File    id:fluArchivo    ${RUTA}
+```
 
 # Extensiones
 
